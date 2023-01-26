@@ -1,0 +1,7 @@
+/* main container app */
+.App {
+  width: 90%;
+  max-width: 1201px;
+  height: auto;
+  margin: 0 auto;
+}

@@ -1,0 +1,25 @@
+/* header design */
+.header {
+  padding-top: 12px;
+}
+.header .title h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--logo-color);
+  line-height: 30px;
+  margin-bottom: 32px;
+}
+.header .title h3 span {
+  font-weight: 300;
+}
+.header .hero {
+  background-image: url("../../assets/backgroundImg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 138px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
