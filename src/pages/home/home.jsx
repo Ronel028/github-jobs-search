@@ -20,45 +20,77 @@ const Home = () => {
               <input type="checkbox" name="fullTime" id="fullTime" />
               <div className="checkmark">
                 <div className="check-bg">
-                  <span class="material-icons">check</span>
+                  <span className="material-icons">check</span>
                 </div>
               </div>
               Full time
             </label>
             <div className="search-location">
               <h2>LOCATION</h2>
-              <div>
+              <div className="location-input">
                 <div className="location-input-container">
-                  <span class="material-icons">public</span>
+                  <span className="material-icons">public</span>
                   <input
                     type="text"
                     name="searchLocation"
+                    className="searchLocation"
                     id="searchLocation"
                     placeholder="City, state, zip code or country"
                   />
                 </div>
                 <div className="place">
-                  <div className="london">
+                  <label htmlFor="london" className="placeName radio">
                     <input type="radio" name="place" id="london" />
-                    <label htmlFor="london">London</label>
-                  </div>
-                  <div className="amsterdam">
+                    <div className="radioBtn"></div>
+                    London
+                  </label>
+                  <label htmlFor="amsterdam" className="placeName radio">
                     <input type="radio" name="place" id="amsterdam" />
-                    <label htmlFor="amsterdam">Amsterdam</label>
-                  </div>
-                  <div className="new-york">
-                    <input type="radio" name="place" id="new-york" />
-                    <label htmlFor="new-york">New York</label>
-                  </div>
-                  <div className="berlin">
+                    <div className="radioBtn"></div>
+                    Amsterdam
+                  </label>
+                  <label htmlFor="newYork" className="placeName radio">
+                    <input type="radio" name="place" id="newYork" />
+                    <div className="radioBtn"></div>
+                    New York
+                  </label>
+                  <label htmlFor="berlin" className="placeName radio">
                     <input type="radio" name="place" id="berlin" />
-                    <label htmlFor="berlin">Berlin</label>
-                  </div>
+                    <div className="radioBtn"></div>
+                    Berlin
+                  </label>
                 </div>
               </div>
             </div>
           </div>
-          <div></div>
+
+          {/* jobs list */}
+          <div className="jobs">
+            <div className="job">
+              <div className="company-logo">
+                <img src="" alt="sample 1" />
+              </div>
+              <div className="job-description">
+                <div className="job-title">
+                  <p>Kasisto</p>
+                  <h3>Front-End Software Engineer</h3>
+                </div>
+                <div className="job-type">
+                  <div className="full-time">Full time</div>
+                  <ul className="job-location">
+                    <li>
+                      <span className="material-icons">public</span>
+                      New York
+                    </li>
+                    <li>
+                      <span className="material-icons">access_time</span>5 days
+                      ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </section>
     </>

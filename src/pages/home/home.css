@@ -24,7 +24,16 @@
   align-items: center;
   justify-content: center;
 }
-
+.job-list-section {
+  padding-bottom: 32px;
+}
+.job-list-section .job-list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 23px;
+}
+/* design for input checkbox */
 .job-list-section .job-list-container .job-input-container .full-time {
   display: flex;
   align-items: center;
@@ -35,13 +44,14 @@
   font-weight: 500;
   line-height: 21px;
   color: var(--text-color);
+  margin-bottom: 32px;
 }
 .job-list-section
   .job-list-container
   .job-input-container
   .full-time
   input[type="checkbox"] {
-  /* display: none; */
+  display: none;
 }
 
 .job-list-section
@@ -66,9 +76,11 @@
   width: 100%;
   height: 100%;
   border-radius: 2px;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity ease-in-out 0.2s;
 }
 .job-list-section
   .job-list-container
@@ -85,7 +97,219 @@
   .job-list-container
   .job-input-container
   .full-time
-  input[type="checkbox"]:checked.checkmark
+  input[type="checkbox"]:checked
+  + .checkmark
   .check-bg {
-  display: flex !important;
+  opacity: 1;
+  transition: opacity ease-in-out 0.2s;
+}
+/* design for input checkbox */
+
+/* design locatio inputs */
+.job-input-container .search-location h2 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 21px;
+  color: var(--very-light-gray);
+  margin-bottom: 14px;
+}
+
+.job-input-container
+  .search-location
+  .location-input
+  .location-input-container {
+  width: 100%;
+  height: 3em;
+  background-color: var(--light);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  margin-bottom: 27px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+.job-input-container
+  .search-location
+  .location-input
+  .location-input-container
+  input[type="text"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding-left: 16px;
+  font-family: var(--font-roboto);
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 14.06px;
+}
+.job-input-container
+  .search-location
+  .location-input
+  .location-input-container
+  input[type="text"]::placeholder {
+  font-family: var(--font-roboto);
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 14.06px;
+  color: var(--very-light-gray);
+}
+/* design location inputs */
+
+/* design radio button */
+.job-input-container .search-location .location-input .place {
+  display: flex;
+  flex-direction: column;
+  gap: 15.67px;
+}
+.job-input-container .search-location .location-input .place .radio {
+  display: flex;
+  align-items: center;
+  gap: 15.5px;
+}
+.job-input-container .search-location .location-input .place .placeName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--text-color);
+}
+.job-input-container
+  .search-location
+  .location-input
+  .place
+  .radio
+  input[type="radio"] {
+  display: none;
+}
+.job-input-container .search-location .location-input .place .radio .radioBtn {
+  width: 1.125em;
+  height: 1.125em;
+  border: 1px solid var(--very-light-gray);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color ease-in-out 0.2s;
+}
+.job-input-container
+  .search-location
+  .location-input
+  .place
+  .radio
+  .radioBtn::before {
+  content: "";
+  width: 0.75em;
+  height: 0.75em;
+  background-color: var(--blue);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity ease-in-out 0.2s;
+}
+.job-input-container
+  .search-location
+  .location-input
+  .place
+  .radio
+  input[type="radio"]:checked
+  + .radioBtn::before {
+  opacity: 1;
+  transition: opacity ease-in-out 0.2s;
+}
+.job-input-container
+  .search-location
+  .location-input
+  .place
+  .radio
+  input[type="radio"]:checked
+  + .radioBtn {
+  border-color: var(--blue);
+  transition: border-color ease-in-out 0.2s;
+}
+/* design radio button */
+
+/* job list */
+.jobs .job {
+  width: 100%;
+  height: auto;
+  padding: 12px;
+  background-color: var(--light);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 16px;
+}
+.jobs .job .company-logo {
+  width: 5.625em;
+  height: 5.625em;
+  background-color: rgb(67, 226, 67);
+}
+.jobs .job .company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.jobs .job .job-description .job-title p {
+  font-family: var(--font-roboto);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 14.06px;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+.jobs .job .job-description .job-title h3 {
+  font-family: var(--font-roboto);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 18.75px;
+  color: var(--text-color);
+  margin-bottom: 14px;
+}
+.jobs .job .job-description .job-type {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.jobs .job .job-description .job-type .full-time {
+  border: 1px solid var(--text-color);
+  width: 3.9375rem;
+  height: auto;
+  border-radius: 4px;
+  padding: 6px;
+  font-family: var(--font-roboto);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 14.06px;
+  color: var(--text-color);
+}
+.jobs .job .job-description .job-type .job-location {
+  display: flex;
+  align-items: center;
+  gap: 28.5px;
+}
+.jobs .job .job-description .job-type .job-location li {
+  display: flex;
+  align-items: center;
+  gap: 8.5px;
+  font-family: var(--font-roboto);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 14.06px;
+  color: var(--text-color);
+}
+
+@media screen and (min-width: 900px) {
+  .job-list-section .job-list-container {
+    grid-template-columns: 379px 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 32px;
+  }
+  .jobs .job .job-description {
+    width: 100%;
+  }
+  .jobs .job .job-description .job-type {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

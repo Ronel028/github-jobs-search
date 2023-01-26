@@ -20,6 +20,11 @@
 
 body {
   font-family: var(--font-poppins);
+  background-color: var(--main-background);
+}
+
+ul {
+  list-style-type: none;
 }
 
 .material-icons {
