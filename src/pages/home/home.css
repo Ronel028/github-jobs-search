@@ -1,6 +1,7 @@
 /* header design */
 .header {
   padding-top: 12px;
+  margin-bottom: 29px;
 }
 .header .title h3 {
   font-size: 24px;
@@ -22,4 +23,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.job-list-section .job-list-container .job-input-container .full-time {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.job-list-section .job-list-container .job-input-container label.full-time {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--text-color);
+}
+.job-list-section
+  .job-list-container
+  .job-input-container
+  .full-time
+  input[type="checkbox"] {
+  /* display: none; */
+}
+
+.job-list-section
+  .job-list-container
+  .job-input-container
+  .full-time
+  .checkmark {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  padding: 1px;
+  background-color: transparent;
+  outline: 1px solid var(--very-light-gray);
+}
+.job-list-section
+  .job-list-container
+  .job-input-container
+  .full-time
+  .checkmark
+  .check-bg {
+  background-color: var(--blue);
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.job-list-section
+  .job-list-container
+  .job-input-container
+  .full-time
+  .checkmark
+  .check-bg
+  .material-icons {
+  color: var(--light);
+  font-weight: 700;
+  font-size: 14px;
+}
+.job-list-section
+  .job-list-container
+  .job-input-container
+  .full-time
+  input[type="checkbox"]:checked.checkmark
+  .check-bg {
+  display: flex !important;
 }
