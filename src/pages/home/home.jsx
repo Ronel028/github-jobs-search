@@ -1,14 +1,11 @@
 import Search from "../../components/search/search";
+import Title from "../../components/title/title";
 import "./home.css";
 const Home = () => {
   return (
     <>
       <header className="header">
-        <div className="title">
-          <h3>
-            Github <span>Jobs</span>
-          </h3>
-        </div>
+        <Title />
         <div className="hero">
           <Search />
         </div>
@@ -90,7 +87,104 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <div className="job">
+              <div className="company-logo">
+                <img src="" alt="sample 1" />
+              </div>
+              <div className="job-description">
+                <div className="job-title">
+                  <p>Lev</p>
+                  <h3>Senior Engineer</h3>
+                </div>
+                <div className="job-type">
+                  <div className="full-time">Full time</div>
+                  <ul className="job-location">
+                    <li>
+                      <span className="material-icons">public</span>
+                      NY or LA
+                    </li>
+                    <li>
+                      <span className="material-icons">access_time</span>5 days
+                      ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="job">
+              <div className="company-logo">
+                <img src="" alt="sample 1" />
+              </div>
+              <div className="job-description">
+                <div className="job-title">
+                  <p>Sesama</p>
+                  <h3>Senior Engineer(back end)</h3>
+                </div>
+                <div className="job-type">
+                  <div className="full-time">Full time</div>
+                  <ul className="job-location">
+                    <li>
+                      <span className="material-icons">public</span>
+                      New York, Berlin
+                    </li>
+                    <li>
+                      <span className="material-icons">access_time</span>5 days
+                      ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="job">
+              <div className="company-logo">
+                <img src="" alt="sample 1" />
+              </div>
+              <div className="job-description">
+                <div className="job-title">
+                  <p>New York University</p>
+                  <h3>Technology Solutions Developer</h3>
+                </div>
+                <div className="job-type">
+                  <div className="full-time">Full time</div>
+                  <ul className="job-location">
+                    <li>
+                      <span className="material-icons">public</span>
+                      New York
+                    </li>
+                    <li>
+                      <span className="material-icons">access_time</span>5 days
+                      ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="job">
+              <div className="company-logo">
+                <img src="" alt="sample 1" />
+              </div>
+              <div className="job-description">
+                <div className="job-title">
+                  <p>Paddle</p>
+                  <h3> Senior Python Software Engineer</h3>
+                </div>
+                <div className="job-type">
+                  <div className="full-time" style={{ border: "none" }}></div>
+                  <ul className="job-location">
+                    <li>
+                      <span className="material-icons">public</span>
+                      New York
+                    </li>
+                    <li>
+                      <span className="material-icons">access_time</span>5 days
+                      ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
+          {/* jobs list */}
         </main>
       </section>
     </>

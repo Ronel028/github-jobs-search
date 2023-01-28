@@ -1,17 +1,6 @@
 /* header design */
 .header {
-  padding-top: 12px;
   margin-bottom: 29px;
-}
-.header .title h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--logo-color);
-  line-height: 30px;
-  margin-bottom: 32px;
-}
-.header .title h3 span {
-  font-weight: 300;
 }
 .header .hero {
   background-image: url("../../assets/backgroundImg.png");
@@ -237,6 +226,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
   display: flex;
   gap: 16px;
+  margin-bottom: 32px;
 }
 .jobs .job .company-logo {
   width: 5.625em;

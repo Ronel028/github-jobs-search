@@ -1,0 +1,11 @@
+/* title design */
+.title h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--logo-color);
+  line-height: 30px;
+  margin-bottom: 32px;
+}
+.title h3 span {
+  font-weight: 300;
+}
