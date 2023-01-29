@@ -4,31 +4,83 @@ import Search from "../../components/search/search";
 import Title from "../../components/title/title";
 import "./home.css";
 const Home = () => {
-  const [searchData, setSearchData] = useState("");
+  const [searchData, setSearchData] = useState({
+    jobTitle: "Software Engineer",
+    jobLocation: "Manila",
+  });
   const [jobData, setJobData] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     const getJobList = async () => {
-      const job = await axios.get("/job");
-      setJobData(job.data.jobs_results);
+      setLoader(true);
+      const jobList = await axios.get(
+        `/job/api?job=${searchData.jobTitle}&location=${searchData.jobLocation}`
+      );
+      setLoader(false);
+      setJobData(jobList.data.jobs_results);
+      console.log(jobList.data.jobs_results);
     };
     getJobList();
   }, []);
 
+  /* search job */
+
   // event for submit search data
   const searchJOb = async (e) => {
     e.preventDefault();
-    console.log(searchData);
-    const jobList = await axios.get(`/job/api?job=${searchData}`);
+    setLoader(true);
+    const jobList = await axios.get(
+      `/job/api?job=${searchData.jobTitle}&location=${searchData.jobLocation}`
+    );
+    setLoader(false);
     setJobData(jobList.data.jobs_results);
+    console.log(jobList.data.jobs_results);
   };
 
   // change function for search job
   const inputSearch = (e) => {
-    setSearchData(e.target.value);
+    setSearchData({
+      ...searchData,
+      jobTitle: e.target.value,
+    });
+  };
+  /* search job */
+
+  /* search location */
+
+  const changeJobLocation = async (e) => {
+    e.preventDefault();
+    setLoader(true);
+    const jobList = await axios.get(
+      `/job/api?job=${searchData.jobTitle}&location=${searchData.jobLocation}`
+    );
+    setLoader(false);
+    setJobData(jobList.data.jobs_results);
+    console.log(jobList.data.jobs_results);
   };
 
-  console.log(jobData);
+  // event for location
+  const searchLocation = (e) => {
+    setSearchData({
+      ...searchData,
+      jobLocation: e.target.value,
+    });
+  };
+
+  const chooseLocation = async (e) => {
+    console.log(searchData.jobTitle);
+    console.log(e.target.value);
+    setLoader(true);
+    const jobList = await axios.get(
+      `/job/api?job=${searchData.jobTitle}&location=${e.target.value}`
+    );
+    setLoader(false);
+    setJobData(jobList.data.jobs_results);
+    console.log(jobList.data.jobs_results);
+  };
+
+  /* search location */
 
   return (
     <>
@@ -52,7 +104,7 @@ const Home = () => {
             </label>
             <div className="search-location">
               <h2>LOCATION</h2>
-              <div className="location-input">
+              <form className="location-input" onSubmit={changeJobLocation}>
                 <div className="location-input-container">
                   <span className="material-icons">public</span>
                   <input
@@ -61,42 +113,71 @@ const Home = () => {
                     className="searchLocation"
                     id="searchLocation"
                     placeholder="City, state, zip code or country"
+                    onChange={searchLocation}
                   />
                 </div>
                 <div className="place">
                   <label htmlFor="london" className="placeName radio">
-                    <input type="radio" name="place" id="london" />
+                    <input
+                      type="radio"
+                      name="place"
+                      id="london"
+                      value="london"
+                      onChange={chooseLocation}
+                    />
                     <div className="radioBtn"></div>
                     London
                   </label>
                   <label htmlFor="amsterdam" className="placeName radio">
-                    <input type="radio" name="place" id="amsterdam" />
+                    <input
+                      type="radio"
+                      name="place"
+                      id="amsterdam"
+                      value="Amsterdam"
+                      onChange={chooseLocation}
+                    />
                     <div className="radioBtn"></div>
                     Amsterdam
                   </label>
                   <label htmlFor="newYork" className="placeName radio">
-                    <input type="radio" name="place" id="newYork" />
+                    <input
+                      type="radio"
+                      name="place"
+                      id="newYork"
+                      value="New York"
+                      onChange={chooseLocation}
+                    />
                     <div className="radioBtn"></div>
                     New York
                   </label>
                   <label htmlFor="berlin" className="placeName radio">
-                    <input type="radio" name="place" id="berlin" />
+                    <input
+                      type="radio"
+                      name="place"
+                      id="berlin"
+                      value="Berlin"
+                      onChange={chooseLocation}
+                    />
                     <div className="radioBtn"></div>
                     Berlin
                   </label>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
 
           {/* jobs list */}
           <div className="jobs">
+            <span
+              className="loader"
+              style={{ display: loader ? "block" : "none" }}
+            ></span>
             {jobData.map((job) => {
               return (
                 <div className="job" key={job.job_id}>
                   <div className="company-logo">
                     {job.thumbnail ? (
-                      <img src={job.thumbnail} alt="sample 1" />
+                      <img src={job.thumbnail} alt={job.company_name} />
                     ) : (
                       <div className="not-found-image">not found</div>
                     )}
