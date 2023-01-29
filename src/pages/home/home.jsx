@@ -19,7 +19,7 @@ const Home = () => {
   const searchJOb = async (e) => {
     e.preventDefault();
     console.log(searchData);
-    const jobList = await axios.get(`/api?job=${searchData}`);
+    const jobList = await axios.get(`/job/api?job=${searchData}`);
     setJobData(jobList.data.jobs_results);
   };
 
@@ -95,7 +95,11 @@ const Home = () => {
               return (
                 <div className="job" key={job.job_id}>
                   <div className="company-logo">
-                    <img src={job.thumbnail} alt="sample 1" />
+                    {job.thumbnail ? (
+                      <img src={job.thumbnail} alt="sample 1" />
+                    ) : (
+                      <div className="not-found-image">not found</div>
+                    )}
                   </div>
                   <div className="job-description">
                     <div className="job-title">
@@ -103,7 +107,14 @@ const Home = () => {
                       <h3>{job.title}</h3>
                     </div>
                     <div className="job-type">
-                      <div className="full-time">
+                      <div
+                        className="full-time"
+                        style={{
+                          border: job.detected_extensions.schedule_type
+                            ? ""
+                            : "none",
+                        }}
+                      >
                         {job.detected_extensions.schedule_type}
                       </div>
                       <ul className="job-location">

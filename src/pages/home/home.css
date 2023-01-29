@@ -229,14 +229,31 @@
   margin-bottom: 32px;
 }
 .jobs .job .company-logo {
-  width: 5.625em;
+  width: 95px;
   height: 5.625em;
-  background-color: rgb(67, 226, 67);
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 4px;
+  /* 
+  */
+}
+.jobs .job .company-logo .not-found-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  font-family: var(--font-roboto);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 14.06px;
+  color: #bdbdbd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .jobs .job .company-logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 4px;
 }
 .jobs .job .job-description .job-title p {
   font-family: var(--font-roboto);

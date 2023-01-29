@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:8080/",
+      "/job/api": "http://localhost:8080/",
       "/job": "http://localhost:8080/",
     },
   },
