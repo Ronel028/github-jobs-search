@@ -261,7 +261,7 @@
 }
 .jobs .job .job-description .job-type .full-time {
   border: 1px solid var(--text-color);
-  width: 3.9375rem;
+  width: auto;
   height: auto;
   border-radius: 4px;
   padding: 6px;
