@@ -313,7 +313,8 @@
   color: var(--text-color);
   margin-bottom: 8px;
 }
-.jobs .job .job-description .job-title h3 {
+.jobs .job .job-description .job-title a {
+  display: block;
   font-family: var(--font-roboto);
   font-weight: 400;
   font-size: 1rem;

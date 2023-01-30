@@ -9,7 +9,7 @@ const Job = () => {
           <div>
             <div className="back-btn">
               <a href="/">
-                <span class="material-icons">trending_flat</span>
+                <span className="material-icons">trending_flat</span>
                 Back to search
               </a>
             </div>
@@ -29,7 +29,7 @@ const Job = () => {
               <div className="full-time">Full time</div>
             </div>
             <p>
-              <span class="material-icons">access_time</span>5 days ago
+              <span className="material-icons">access_time</span>5 days ago
             </p>
             <div className="company-info">
               <div className="company-img-container">
@@ -38,7 +38,7 @@ const Job = () => {
               <div className="company-name">
                 <h4>Kasisto</h4>
                 <p>
-                  <span class="material-icons">public</span>New York
+                  <span className="material-icons">public</span>New York
                 </p>
               </div>
             </div>

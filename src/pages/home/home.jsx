@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Search from "../../components/search/search";
 import Title from "../../components/title/title";
 import "./home.css";
 const Home = () => {
   const [searchData, setSearchData] = useState({
     jobTitle: "Software Engineer",
-    jobLocation: "Manila",
+    jobLocation: "",
   });
   const [jobData, setJobData] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -19,7 +20,6 @@ const Home = () => {
       );
       setLoader(false);
       setJobData(jobList.data.jobs_results);
-      console.log(jobList.data.jobs_results);
     };
     getJobList();
   }, []);
@@ -35,7 +35,6 @@ const Home = () => {
     );
     setLoader(false);
     setJobData(jobList.data.jobs_results);
-    console.log(jobList.data.jobs_results);
   };
 
   // change function for search job
@@ -57,10 +56,9 @@ const Home = () => {
     );
     setLoader(false);
     setJobData(jobList.data.jobs_results);
-    console.log(jobList.data.jobs_results);
   };
 
-  // event for location
+  // event to get user input location
   const searchLocation = (e) => {
     setSearchData({
       ...searchData,
@@ -68,19 +66,22 @@ const Home = () => {
     });
   };
 
+  // choose location using 4 radio button in the ui
   const chooseLocation = async (e) => {
-    console.log(searchData.jobTitle);
-    console.log(e.target.value);
+    setSearchData({
+      ...searchData,
+      jobLocation: "",
+    });
     setLoader(true);
     const jobList = await axios.get(
       `/job/api?job=${searchData.jobTitle}&location=${e.target.value}`
     );
     setLoader(false);
     setJobData(jobList.data.jobs_results);
-    console.log(jobList.data.jobs_results);
   };
-
   /* search location */
+
+  console.log(searchData.jobLocation);
 
   return (
     <>
@@ -113,6 +114,7 @@ const Home = () => {
                     className="searchLocation"
                     id="searchLocation"
                     placeholder="City, state, zip code or country"
+                    value={searchData.jobLocation}
                     onChange={searchLocation}
                   />
                 </div>
@@ -185,7 +187,7 @@ const Home = () => {
                   <div className="job-description">
                     <div className="job-title">
                       <p>{job.company_name}</p>
-                      <h3>{job.title}</h3>
+                      <Link to="/jobInfo">{job.title}</Link>
                     </div>
                     <div className="job-type">
                       <div
@@ -196,17 +198,23 @@ const Home = () => {
                             : "none",
                         }}
                       >
-                        {job.detected_extensions.schedule_type}
+                        {job.detected_extensions.schedule_type
+                          ? "Full time"
+                          : ""}
                       </div>
                       <ul className="job-location">
                         <li>
                           <span className="material-icons">public</span>
                           {job.location}
                         </li>
-                        <li>
-                          <span className="material-icons">access_time</span>
-                          {job.detected_extensions.posted_at}
-                        </li>
+                        {job.detected_extensions.posted_at ? (
+                          <li>
+                            <span className="material-icons">access_time</span>
+                            {job.detected_extensions.posted_at}
+                          </li>
+                        ) : (
+                          ""
+                        )}
                       </ul>
                     </div>
                   </div>
